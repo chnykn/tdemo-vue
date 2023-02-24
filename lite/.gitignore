@@ -1,0 +1,37 @@
+# Logs
+logs
+*.log
+*.log*
+
+# NodeJS
+node_modules
+dist-ssr
+.npmrc
+pnpm-lock.yaml
+yarn.lock
+package-lock.json
+
+# Build files
+es/
+lib/
+dist/
+typings/
+.backup/
+_site
+package
+
+# IDE files
+#.vscode/*
+#!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.sln
+
+# Other files
+tmp*
+*.zip
+*.rar
+*.7z
+.history
+.stylelintcache

@@ -1,0 +1,28 @@
+// layout rewrite
+
+@import './font-family.less';
+
+// .t-layout__sider {
+// 	width: fit-content;
+// }
+
+.t-button+.t-button {
+	margin-left: var(--td-comp-margin-s);
+}
+
+.t-menu--dark .t-menu__operations .t-icon {
+	color: rgba(255, 255, 255, 0.55);
+
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+.t-menu__popup {
+	z-index: 1000;
+}
+
+.t-default-menu.t-menu--dark {
+	background: var(--td-gray-color-13);
+}
+
