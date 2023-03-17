@@ -118,7 +118,8 @@ const getMenuList = (routes: Array<RouteRecordRaw>, basePath?: string): MenuItem
 //-------------------
 
 const getPath = (item: MenuItem) => {
-	if (props.active.startsWith(item.path)) {
+	// if (props.active.startsWith(item.path)) {
+	if (props.active === item.path) {
 		return props.active;
 	}
 	return item.meta?.single ? item.redirect : item.path;
