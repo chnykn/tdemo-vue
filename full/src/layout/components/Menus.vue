@@ -118,7 +118,12 @@ const getMenuList = (routes: Array<RouteRecordRaw>, basePath?: string): MenuItem
 //-------------------
 
 const getPath = (item: MenuItem) => {
-	// if (props.active.startsWith(item.path)) {
+	const pathLevel = item.path.split('/').length;
+	const activeLevel = props.active.split('/').length;
+	if (activeLevel > pathLevel && props.active.startsWith(item.path)) {
+		return props.active;
+	}
+
 	if (props.active === item.path) {
 		return props.active;
 	}

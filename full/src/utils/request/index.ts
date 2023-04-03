@@ -1,7 +1,7 @@
 // import { loadEnv } from 'vite';
 import isString from 'lodash/isString';
 import merge from 'lodash/merge';
-import type { InternalAxiosRequestConfig } from 'axios';
+import type { AxiosInstance, InternalAxiosRequestConfig } from 'axios';
 import { MessagePlugin } from 'tdesign-vue-next';
 
 import hosts from '@/config/hosts';
@@ -172,7 +172,7 @@ const transform: AxiosTransform = {
 	responseInterceptors: (res) => {
 		return res;
 	},
-	responseInterceptorsCatch: (error: any) => {
+	responseInterceptorsCatch: (error: any, instance: AxiosInstance) => {
 		const { config } = error;
 		if (!config || !config.requestOptions.retry) return Promise.reject(error);
 
@@ -189,7 +189,7 @@ const transform: AxiosTransform = {
 		});
 
 		config.headers = { ...config.headers, 'Content-Type': ContentTypeEnum.Json };
-		return backoff.then((config) => request.request(config));
+		return backoff.then((config) => instance.request(config));
 	},
 };
 

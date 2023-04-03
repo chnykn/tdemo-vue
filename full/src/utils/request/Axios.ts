@@ -95,7 +95,9 @@ export class VAxios {
 
 		// 响应错误处理
 		if (responseInterceptorsCatch && isFunction(responseInterceptorsCatch)) {
-			this.instance.interceptors.response.use(undefined, responseInterceptorsCatch);
+			this.instance.interceptors.response.use(undefined, (error) =>
+				responseInterceptorsCatch(error, this.instance),
+			);
 		}
 	}
 
